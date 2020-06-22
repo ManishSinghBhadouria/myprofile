@@ -1,0 +1,533 @@
+{% load static %}
+
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Profile</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	
+	
+	<!-- Font -->
+	
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700%7CAllura" rel="stylesheet">
+	
+	<!-- Stylesheets -->
+	
+	<link href="{% static 'common-css/bootstrap.css' %}" rel="stylesheet">
+	
+	<link href="{% static 'common-css/ionicons.css' %}" rel="stylesheet">
+	
+	<link href="{% static 'common-css/fluidbox.min.css' %}" rel="stylesheet">
+	
+	<link href="{% static '01-cv-portfolio/css/styles.css' %}" rel="stylesheet">
+	
+	<link href="{% static '01-cv-portfolio/css/responsive.css' %}" rel="stylesheet">
+	<style> 
+input[type=number] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid orange;
+  border-radius: 4px;
+}
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid orange;
+  border-radius: 4px;
+}
+</style>
+</head>
+<body>
+	
+	<header>
+		<div class="container">
+			<div class="heading-wrapper">
+				<div class="row">
+					<div class="col-sm-6 col-md-6 col-lg-4">
+						<div class="info">
+							<i class="icon ion-ios-location-outline"></i>
+							<div class="right-area">
+								<h5>Gwalior</h5>
+								<h5>Madhya Pradesh, India</h5>
+							</div><!-- right-area -->
+						</div><!-- info -->
+					</div><!-- col-sm-4 -->
+					
+					<div class="col-sm-6 col-md-6 col-lg-4">
+						<div class="info">
+							<i class="icon ion-ios-telephone-outline"></i>
+							<div class="right-area">
+								<h5>+91 8305464069</h5>
+								<h6>Available</h6>
+							</div><!-- right-area -->
+						</div><!-- info -->
+					</div><!-- col-sm-4 -->
+					
+					<div class="col-sm-6 col-md-6 col-lg-4">
+						<div class="info">
+							<i class="icon ion-ios-chatboxes-outline"></i>
+							<div class="right-area">
+								<h5>cs_2016manishsingh@vitm.edu.in</h5>
+								<h6>REPLY IN 24 HOURS</h6>
+							</div><!-- right-area -->
+						</div><!-- info -->
+					</div><!-- col-sm-4 -->
+				</div><!-- row -->
+				
+			</div><!-- heading-wrapper -->
+			<a class="downlad-btn" href="{{ user.resume.url }}" target="_blank">Download CV</a>
+			<button >
+			<a class="downlad-btn" data-toggle="modal" data-target="#exampleModal" href="#">My Work</a>
+			</button>
+		</div><!-- container -->
+	</header>
+	
+
+
+	<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Works</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	<a class="btn btn-color-yellow" href="https://fathomless-gorge-25943.herokuapp.com/" target=”_blank”>Student E-Feedback System</a>
+			<a class="btn btn-color-yellow" href="https://obscure-spire-74025.herokuapp.com/" target=”_blank”>Bulk Mail System</a>
+			<a class="btn btn-color-yellow" href="https://ancient-shelf-00857.herokuapp.com/" target=”_blank”>Resume Maker</a>
+			<a class="btn btn-color-yellow" href="{% url 'CheckInternet' %}" target=”_blank”>Check Your Device Connected To Internet Or Not</a>
+			<a class="btn btn-color-yellow" href="{% url 'MacIp' %}" target=”_blank”>Check Your MAC And IP Address</a>
+			<a class="btn btn-color-yellow" href="{% url 'NetSpeed' %}" target=”_blank”>Check Internet Speed</a>
+			<a class="btn btn-color-yellow" href="{% url 'IpLoc' %}" target=”_blank”>Location By IP</a>
+			<a class="btn btn-color-yellow" data-dismiss="modal" data-toggle="modal" data-target="#pincode" href="">Location By Pincode</a>
+			<a class="btn btn-color-yellow" data-dismiss="modal" data-toggle="modal" data-target="#youtube" href="">Download Youtube Video</a>
+			<a class="btn btn-color-yellow" data-dismiss="modal" data-toggle="modal" data-target="#youtubedesc" href="">View Youtube Video Details</a>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="pincode" tabindex="-1" role="dialog" aria-labelledby="pincode" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Works</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form action={% url 'PinLoc' %} method="post">
+{% csrf_token %}
+  <label>Pincode</label>
+  <input type="number" name="pincode" placeholder="Enter Your Pincode" required>
+  <input type="submit" class="btn btn-color-yellow" value="Submit">
+</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="modal fade" id="youtube" tabindex="-1" role="dialog" aria-labelledby="pincode" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Works</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form action={% url 'Utube' %} method="post">
+{% csrf_token %}
+<label>Youtube Video URL</label>
+  <input type="text" name="url" placeholder="Enter Youtube Video URL" required>
+<fieldset data-role="controlgroup">
+  <legend>Select One To Download:</legend>
+  <input type="radio" id="male" name="gender" value="video" checked="checked">
+  <label for="male">Video</label><br>
+  <input type="radio" id="female" name="gender" value="audio">
+  <label for="female">Audio</label><br>
+  <input type="radio" id="other" name="gender" value="both">
+  <label for="other">Both[Audio & Video]</label>
+</fieldset>
+  <br>  
+
+  <input type="submit" class="btn btn-color-yellow" value="Download">
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="modal fade" id="youtubedesc" tabindex="-1" role="dialog" aria-labelledby="pincode" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Works</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+<form action={% url 'UtubeDesc' %} method="post">
+{% csrf_token %}
+<label>Youtube Video URL</label>
+  <input type="text" name="url" placeholder="Enter Youtube Video URL" required>
+
+  <br>  
+
+  <input type="submit" class="btn btn-color-yellow" value="View">
+</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+	<section class="intro-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-1 col-lg-2"></div>
+				<div class="col-md-10 col-lg-8">
+					<div class="intro">
+						<div class="profile-img"><img src="{% static 'images/profile-1-250x250.jpg' %}" alt=""></div>
+						<h2><b>Manish Singh Bhadouria</b></h2>
+						<h4 class="font-yellow">Python Developer(Django)</h4>
+						<ul class="information margin-tb-30">
+							<li><b>BORN : </b>December 16, 1996</li>
+							<li><b>EMAIL : </b>manishsinghbhadouria4@gmail.com</li>
+						</ul>
+						<ul class="social-icons">
+							<li><a href="#"><i class="ion-social-pinterest"></i></a></li>
+							<li><a href="#"><i class="ion-social-linkedin"></i></a></li>
+							<li><a href="#"><i class="ion-social-instagram"></i></a></li>
+							<li><a href="#"><i class="ion-social-facebook"></i></a></li>
+							<li><a href="#"><i class="ion-social-twitter"></i></a></li>
+						</ul>
+					</div><!-- intro -->
+				</div><!-- col-sm-8 -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</section><!-- intro-section -->
+	
+
+	
+	
+	<section class="about-section section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="heading">
+						<h3><b>About me</b></h3>
+						<h6 class="font-lite-black"><b>PROFESSIONAL PATH</b></h6>
+					</div>
+				</div><!-- col-sm-4 -->
+				<div class="col-sm-8">
+					<p class="margin-b-50">
+					Strong in web design integration with intuitive problem-solving skills.
+					 Proficient in Python, Django Framework, and Database(MySql,Postgresql,DbSqlite3). 
+					 Passionate about implementing and launching new projects. 
+					 Ability to translate business requirements into technical solutions. 
+					 Looking to start the career as an entry-level software engineer with a reputed firm driven by technology.
+					
+					.</p>
+					
+					<div class="row">
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-30">
+								<div class="radial-progress" data-prog-percent=".50">
+									<div></div>
+									<h6 class="progress-title">HTML5 & CSS3</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+					
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-30">
+								<div class="radial-progress" data-prog-percent=".68">
+									<div></div>
+									<h6 class="progress-title">Django</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+						
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-30">
+								<div class="radial-progress" data-prog-percent=".60">
+									<div></div>
+									<h6 class="progress-title">Python</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+						
+						<div class="col-sm-6 col-md-6 col-lg-3">
+							<div class="radial-prog-area margin-b-50">
+								<div class="radial-progress" data-prog-percent=".77">
+									<div></div>
+									<h6 class="progress-title">Mysql</h6>
+								</div>
+							</div><!-- radial-prog-area-->
+						</div><!-- col-sm-6-->
+					
+					</div><!-- row -->
+				</div><!-- col-sm-8 -->
+			</div><!-- row -->
+		</div><!-- container -->
+	</section><!-- about-section -->
+	
+	<section class="experience-section section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="heading">
+						<h3><b>Work Experience</b></h3>
+						<h6 class="font-lite-black"><b>PROJECTS</b></h6>
+					</div>
+				</div><!-- col-sm-4 -->
+				<div class="col-sm-8">
+				
+					<div class="experience margin-b-50">
+						<h4><b>STUDENT E-FEEDBACK SYSTEM</b></h4>
+						<h5 class="font-yellow"><b>DESIGN -WEB TEMPLATE</b></h5>
+						<h6 class="margin-t-10">MARCH 2019 - JUNE 2019</h6>
+						<p class="font-semi-white margin-tb-30">STUDENT SECTION - To manage students and student can register,login,manage profile,give feedback.<br>
+						FACULTY SECTION - Faculty can register,login,manage profile,view subjects,five overall subject feedback.<br>
+						ADMIN SECTION - Admin can view and manage all users,start custom feedback,view all feedback. </p>
+						<ul class="list margin-b-30">
+							<li>HTML,CSS,JS</li>
+							<li>PYTHON,DJANGO</li>
+							<li>DbSqlite3,Postgresql,MySql</li>
+						</ul>
+					</div><!-- experience -->
+					
+					<div class="experience margin-b-50">
+						<h4><b>Bulk E-mail SYSTEM</b></h4>
+						<h5 class="font-yellow"><b>DESIGN -WEB TEMPLATE</b></h5>
+						<h6 class="margin-t-10">SEPT 2019 - SEPT 2019</h6>
+						<p class="font-semi-white margin-tb-30">STUDENT SECTION - Student can register by their programme,branch and semester<br>
+						ADMIN SECTION - Admin can view and manage all students and send custom E-mail. </p>
+						<ul class="list margin-b-30">
+							<li>HTML,CSS,JS</li>
+							<li>PYTHON,DJANGO</li>
+							<li>DbSqlite3,Postgresql,MySql</li>
+						</ul>
+					</div><!-- experience -->
+					
+				</div><!-- col-sm-8 -->
+			</div><!-- row -->
+		</div><!-- container -->
+		
+	</section><!-- experience-section -->
+	
+	<section class="education-section section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="heading">
+						<h3><b>Education</b></h3>
+						<h6 class="font-lite-black"><b>ACADEMIC CAREER</b></h6>
+					</div>
+				</div><!-- col-sm-4 -->
+				<div class="col-sm-8">
+					<div class="education-wrapper">
+						<div class="education margin-b-50">
+							<h4><b>BACHELOR OF ENGINEERING</b></h4>
+							<h5 class="font-yellow"><b>COMPUTER SCIENCE AND ENGINEERING</b></h5>
+							<h6 class="font-lite-black margin-t-10">GRADUATED IN JULY 2020(4 YEARS)</h6>
+							<p class="margin-tb-30">VIKRANT GROUP OF INSTITUTES AND TECHNOLOGY<br>
+							GRADE - 8.01 CGPA<br>
+							</p>
+						</div><!-- education -->
+						
+						<div class="education margin-b-50">
+							<h4><b>HIGHER SECONDARY SCHOOL</b></h4>
+							<h5 class="font-yellow"><b>SCIENCE STREAM</b></h5>
+							<h6 class="font-lite-black margin-t-10">COMPLETED IN MAY 2016(1 YEAR)</h6>
+							<p class="margin-tb-30">GREENWOOD PUBLIC SCHOOL<br>
+							GRADE - 56.8 %<br> </p>
+						</div><!-- education -->
+						
+						<div class="education margin-b-50">
+							<h4><b>SECONDARY SCHOOL</b></h4>
+							<h5 class="font-yellow"><b>COMPUTER IN ADDITIONAL</b></h5>
+							<h6 class="font-lite-black margin-t-10">COMPLETED IN MAY 2014(1 YEAR)</h6>
+							<p class="margin-tb-30">SWAMI VIVEKANANDA ACADEMY<br>
+							GRADE - 8.4 CGPA<br> </p>
+						</div><!-- education -->
+					</div><!-- education-wrapper -->
+				</div><!-- col-sm-8 -->
+			</div><!-- row -->
+		</div><!-- container -->
+		
+	</section><!-- about-section -->
+	
+
+
+{% comment %} 
+	<section class="experience-section section">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4">
+					<div class="heading">
+						<h3><b>Work Experience</b></h3>
+						<h6 class="font-lite-black"><b>PREVIOUS JOBS</b></h6>
+					</div>
+				</div><!-- col-sm-4 -->
+				<div class="col-sm-8">
+				
+					<div class="experience margin-b-50">
+						<h4><b>JUNIOR PROJECT MANAGER</b></h4>
+						<h5 class="font-yellow"><b>DESIGN STUDIO</b></h5>
+						<h6 class="margin-t-10">MARCH 2015 - PRESENT</h6>
+						<p class="font-semi-white margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						<ul class="list margin-b-30">
+							<li>Duis non volutpat arcu, eu mollis tellus.</li>
+							<li>Quis consequat nulla effi citur at.</li>
+							<li>Sed finibus aliquam neque sit.</li>
+						</ul>
+					</div><!-- experience -->
+					
+					<div class="experience margin-b-50">
+						<h4><b>WEB MASTER/WEB DEVELOPER</b></h4>
+						<h5 class="font-yellow"><b>DESIGN & WEB STUDIO</b></h5>
+						<h6 class="margin-t-10">APRIL 2014 - FEBRUARY 2015</h6>
+						<p class="font-semi-white margin-tb-30">Duis non volutpat arcu, eu mollis tellus. Sed finibus aliquam neque sit amet sodales. 
+							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla maximus pellentes que velit, 
+							quis consequat nulla effi citur at. Maecenas sed massa tristique.Duis non volutpat arcu, 
+							eu mollis tellus. Sed finibus aliquam neque sit amet sodales. </p>
+						<ul class="list margin-b-30">
+							<li>Duis non volutpat arcu, eu mollis tellus.</li>
+							<li>Quis consequat nulla effi citur at.</li>
+							<li>Sed finibus aliquam neque sit.</li>
+						</ul>
+					</div><!-- experience -->
+					
+				</div><!-- col-sm-8 -->
+			</div><!-- row -->
+		</div><!-- container -->
+		
+	</section><!-- experience-section --> {% endcomment %}
+	
+
+
+
+
+
+
+	{% comment %} <section class="counter-section" id="counter">
+		<div class="container">
+			<div class="row">
+			
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="counter margin-b-30">
+						<h1 class="title"><b><span class="counter-value" data-duration="400" data-count="3">0</span></b></h1>
+						<h5 class="desc"><b>Coder Degrees</b></h5>
+					</div><!-- counter -->
+				</div><!-- col-md-3-->
+				
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="counter margin-b-30">
+						<h1 class="title"><b><span class="counter-value" data-duration="1400" data-count="25">0</span></b></h1>
+						<h5 class="desc"><b>Project Completed</b></h5>
+					</div><!-- counter -->
+				</div><!-- col-md-3-->
+				
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="counter margin-b-30">
+						<h1 class="title"><b><span class="counter-value" data-duration="700" data-count="311">0</span></b></h1>
+						<h5 class="desc"><b>Satisfied Clients</b></h5>
+					</div><!-- counter -->
+				</div><!-- col-md-3-->
+				
+				<div class="col-sm-6 col-md-6 col-lg-3">
+					<div class="counter margin-b-30">
+						<h1 class="title"><b><span class="counter-value" data-duration="2000" data-count="732">0</span></b></h1>
+						<h5 class="desc"><b>Finished Projects</b></h5>
+					</div><!-- margin-b-30 -->
+				</div><!-- col-md-3-->
+				
+			</div><!-- row-->
+		</div><!-- container-->
+    </section><!-- counter-section--> {% endcomment %}
+	
+	<footer>
+		<p class="copyright">
+			<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ion-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+		</p>
+
+
+	</footer>
+	
+	
+	<!-- SCIPTS -->
+	
+	<script src="{% static 'common-js/jquery-3.2.1.min.js' %}"></script>
+	
+	<script src="{% static 'common-js/tether.min.js' %}"></script>
+	
+	<script src="{% static 'common-js/bootstrap.js' %}"></script>
+	
+	<script src="{% static 'common-js/isotope.pkgd.min.js' %}"></script>
+	
+	<script src="{% static 'common-js/jquery.waypoints.min.js' %}"></script>
+	
+	<script src="{% static 'common-js/progressbar.min.js' %}"></script>
+	
+	<script src="{% static 'common-js/jquery.fluidbox.min.js' %}"></script>
+	
+	<script src="{% static 'common-js/scripts.js' %}"></script>
+	
+</body>
+</html>
