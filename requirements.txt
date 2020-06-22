@@ -12,9 +12,7 @@ bleach==3.1.5
 blinker==1.4
 certifi==2019.11.28
 chardet==3.0.4
-chatbot==1.5.2b0
-chatterbot==1.1.0
-chatterbot-corpus==1.2.0
+
 cipher==0.1
 Click==7.0
 colorama==0.4.3
@@ -106,7 +104,6 @@ prison==0.1.2
 prometheus-client==0.7.1
 prompt-toolkit==3.0.5
 psycopg2==2.8.4
-PyAudio==0.2.11
 PyAutoGUI==0.9.50
 pycryptodome==3.9.7
 pygame==1.9.6
